@@ -14,9 +14,7 @@ app.get("/", async (req, res) => {
       "https://api.football-data.org/v4/matches",
       { headers: { "X-Auth-Token": apiKey } }
     );
-    // const result = response.data;
-    res.render("index.ejs", { games: response });
-    //
+    res.render("index.ejs", { games: response.data });
   } catch (error) {
     console.log("aa ", error);
     res.status(500).send("Failed to fetch match data.");

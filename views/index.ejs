@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" type="text/css" href="styles/main.css" /> -->
-    <title>Football</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <title>Football Games</title>
   </head>
   <body>
-    <h1><%= games %></h1>
+    <h1>Results</h1>
+    <ul>
+      <div class="identifiers">
+        <h2>Home</h2>
+        <h2>Away</h2>
+        <h2>Score</h2>
+      </div>
+      <% games.matches.forEach(match => { %>
+      <li>
+        <div class="match">
+          <span><%= match.homeTeam.name %></span>
+          <strong class="versus">vs. </strong>
+          <span><%= match.awayTeam.name %></span>
+          <span
+            ><%= match.score.fullTime.home %> - <%= match.score.fullTime.away
+            %></span
+          >
+        </div>
+      </li>
+      <% }); %>
+    </ul>
   </body>
 </html>
